@@ -1,4 +1,4 @@
-import { fetchGet } from "./public";
+import { fetchGet } from "./axios";
 let baseUrl = process.env.VUE_APP_URL;
 export const companyInfo = () => {
     return fetchGet(`${baseUrl}/admin/company`);
