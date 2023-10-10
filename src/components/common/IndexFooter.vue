@@ -27,7 +27,7 @@
             <b-col>
                 <div>
                     <p>
-                        Copyright © 2014 ez-Bio Inc. - All rights reserved. {{ company.icp }}
+                        Copyright © 2014 ez-Bio Inc. - All rights reserved.
                     </p>
                 </div>
             </b-col>
