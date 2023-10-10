@@ -23,8 +23,38 @@
               </b-input-group>
             </div>
           </b-col>
-          <b-col>3 of 3</b-col>
-        </b-row> 
+          <b-col>
+            <div>
+              <p class="h5 mb-2">
+                <b-icon icon="telephone-fill"></b-icon> 123213213
+              </p>
+            </div>
+          </b-col>
+        </b-row>
+        <div class="mt-4"></div> 
+        <b-row>
+          <b-col>  
+            <div>
+              <b-nav tabs fill>
+                <b-nav-item-dropdown text="品牌">
+                  <b-dropdown-item href="#">EN</b-dropdown-item>
+                  <b-dropdown-item href="#">ES</b-dropdown-item>
+                  <b-dropdown-item href="#">RU</b-dropdown-item>
+                  <b-dropdown-item href="#">FA</b-dropdown-item>
+                </b-nav-item-dropdown>
+                <b-nav-item-dropdown text="类型">
+                  <b-dropdown-item href="#">EN</b-dropdown-item>
+                  <b-dropdown-item href="#">ES</b-dropdown-item>
+                  <b-dropdown-item href="#">RU</b-dropdown-item>
+                  <b-dropdown-item href="#">FA</b-dropdown-item>
+                </b-nav-item-dropdown>
+                <b-nav-item>技术文档</b-nav-item>
+                <b-nav-item>关于我们</b-nav-item>
+              </b-nav>
+            </div>
+          </b-col>   
+        </b-row>
+        <div class="mt-4"></div> 
       </b-container>
 </template>
 <script>
