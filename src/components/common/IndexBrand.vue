@@ -11,6 +11,13 @@
     </div>
 </template>
 <script>
+    export default{
+      name:"IndexBrand",
+      props:{
+          company:{}
+      }
+      
+    }
 </script>
 <style scoped>
 </style>
