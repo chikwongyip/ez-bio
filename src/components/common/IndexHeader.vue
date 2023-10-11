@@ -89,6 +89,9 @@
             this.category = res.data
           })
         }
+      },
+      mounted(){
+        this.getData()
       }
   }
 </script>
