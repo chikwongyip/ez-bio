@@ -26,7 +26,7 @@
           <b-col>
             <div>
               <p class="h5 mb-2">
-                <b-icon icon="telephone-fill"></b-icon> 123213213
+                <b-icon icon="telephone-fill"></b-icon> {{ company.tel }}
               </p>
             </div>
           </b-col>
@@ -37,16 +37,18 @@
             <div>
               <b-nav tabs fill>
                 <b-nav-item-dropdown text="品牌">
-                  <b-dropdown-item href="#">EN</b-dropdown-item>
-                  <b-dropdown-item href="#">ES</b-dropdown-item>
-                  <b-dropdown-item href="#">RU</b-dropdown-item>
-                  <b-dropdown-item href="#">FA</b-dropdown-item>
+                  <b-dropdown-item href="#" 
+                                    v-for="(item) in brand" 
+                                   :key="item.brand_id">
+                    {{ item.brand_name }}
+                  </b-dropdown-item>
                 </b-nav-item-dropdown>
                 <b-nav-item-dropdown text="类型">
-                  <b-dropdown-item href="#">EN</b-dropdown-item>
-                  <b-dropdown-item href="#">ES</b-dropdown-item>
-                  <b-dropdown-item href="#">RU</b-dropdown-item>
-                  <b-dropdown-item href="#">FA</b-dropdown-item>
+                  <b-dropdown-item href="#"
+                                   v-for="(item) in category"
+                                   :key="item.category_id">
+                    {{ item.category_name }}
+                  </b-dropdown-item>
                 </b-nav-item-dropdown>
                 <b-nav-item>技术文档</b-nav-item>
                 <b-nav-item>关于我们</b-nav-item>
@@ -81,9 +83,10 @@
             this.company.logo = process.env.VUE_APP_IMAGE + this.company.logo
           })
           getBrand().then(res =>{
-            this.brand = res.data.map( item => {
-              item.brand_image = process.env.VUE_APP_IMAGE + item.brand_image
-            })
+            this.brand = res.data
+            // this.brand.forEach( item => {
+            //   item.brand_image = process.env.VUE_APP_IMAGE + item.brand_image
+            // })
           })
           getCategory().then(res => {
             this.category = res.data

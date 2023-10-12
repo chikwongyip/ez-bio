@@ -2,15 +2,20 @@
   <div id="app">
     <index-header>
     </index-header>
+    <index-footer>
+      
+    </index-footer>
   </div>
 </template>
 
 <script>
 import IndexHeader from './components/common/IndexHeader.vue';
+import IndexFooter from './components/common/IndexFooter.vue';
 export default {
   name: 'App',
   components: {
-    IndexHeader
+    IndexHeader,
+    IndexFooter
   }
 }
 </script>
