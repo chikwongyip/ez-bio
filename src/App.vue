@@ -2,8 +2,10 @@
   <div id="app">
     <index-header>
     </index-header>
-    <index-footer>
+    <product-list>
       
+    </product-list>
+    <index-footer>
     </index-footer>
   </div>
 </template>
@@ -11,11 +13,15 @@
 <script>
 import IndexHeader from './components/common/IndexHeader.vue';
 import IndexFooter from './components/common/IndexFooter.vue';
+// import IndexCarousel from './components/IndexCarousel.vue';
+import ProductList from '@/components/ProductList'
 export default {
   name: 'App',
   components: {
     IndexHeader,
-    IndexFooter
+    IndexFooter,
+    // IndexCarousel
+    ProductList
   }
 }
 </script>
