@@ -38,14 +38,8 @@
                     </p>
                     </div>
                     <div class="col-xl-3 col-md-3 col-sm-5">
-                    <div class="d-flex flex-row align-items-center mb-1">
-                        <h4 class="mb-1 me-1">$34,50</h4>
-                        <span class="text-danger"><s>$49.99</s></span>
-                    </div>
-                    <h6 class="text-success">Free shipping</h6>
                     <div class="mt-4">
-                        <button class="btn btn-primary shadow-0" type="button">Buy this</button>
-                        <a href="#!" class="btn btn-light border px-2 pt-2 icon-hover"><i class="fas fa-heart fa-lg px-1"></i></a>
+                        <button class="btn btn-primary" type="button">点击浏览</button>
                     </div>
                     </div>
                 </div>
@@ -61,7 +55,10 @@
       name:"ProductList",
       data(){
         return{
-            productList:[]
+            productList:[],
+            perPage:10,
+            currentPage:1,
+
         }
       },
       mounted(){
@@ -71,6 +68,11 @@
                 item.product_pic = process.env.VUE_APP_IMAGE + item.product_pic
             })
         })
+      },
+      computed:{
+        rows(){
+            return this.productList.length
+        }
       }
   }
 </script>

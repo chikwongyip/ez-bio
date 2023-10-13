@@ -2,9 +2,9 @@
   <div id="app">
     <index-header>
     </index-header>
-    <product-list>
+    <product-details>
       
-    </product-list>
+    </product-details>
     <index-footer>
     </index-footer>
   </div>
@@ -13,15 +13,17 @@
 <script>
 import IndexHeader from './components/common/IndexHeader.vue';
 import IndexFooter from './components/common/IndexFooter.vue';
+import ProductDetails from './components/ProductDetails.vue';
 // import IndexCarousel from './components/IndexCarousel.vue';
-import ProductList from '@/components/ProductList'
+// import ProductList from '@/components/ProductList'
 export default {
   name: 'App',
   components: {
     IndexHeader,
     IndexFooter,
+    ProductDetails
     // IndexCarousel
-    ProductList
+    // ProductList
   }
 }
 </script>
