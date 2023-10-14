@@ -37,16 +37,16 @@
             <div>
               <b-nav tabs fill>
                 <b-nav-item-dropdown text="品牌">
-                  <b-dropdown-item href="#" 
-                                    v-for="(item) in brand" 
-                                   :key="item.brand_id">
+                  <b-dropdown-item v-for="(item) in brand" 
+                                   :key="item.brand_id"
+                                   :route="{path:'/productList',query:{brand_id:item.brand_id}}">
                     {{ item.brand_name }}
                   </b-dropdown-item>
                 </b-nav-item-dropdown>
                 <b-nav-item-dropdown text="类型">
-                  <b-dropdown-item href="#"
-                                   v-for="(item) in category"
-                                   :key="item.category_id">
+                  <b-dropdown-item v-for="(item) in category"
+                                   :key="item.category_id"
+                                   :route="{path:'/productList',query:{category_id:item.category_id}}">
                     {{ item.category_name }}
                   </b-dropdown-item>
                 </b-nav-item-dropdown>
@@ -84,9 +84,6 @@
           })
           getBrand().then(res =>{
             this.brand = res.data
-            // this.brand.forEach( item => {
-            //   item.brand_image = process.env.VUE_APP_IMAGE + item.brand_image
-            // })
           })
           getCategory().then(res => {
             this.category = res.data

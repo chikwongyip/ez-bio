@@ -27,32 +27,10 @@
         <main class="col-lg-6">
             <div class="ps-lg-3">
             <h4 class="title text-dark">
-                Quality Men's Hoodie for Winter, Men's Fashion <br />
-                Casual Hoodie
+                {{ product.product }}
             </h4>
-            <div class="d-flex flex-row my-3">
-                <div class="text-warning mb-1 me-2">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-                <span class="ms-1">
-                    4.5
-                </span>
-                </div>
-                <span class="text-muted"><i class="fas fa-shopping-basket fa-sm mx-1"></i>154 orders</span>
-                <span class="text-success ms-2">In stock</span>
-            </div>
-
-            <div class="mb-3">
-                <span class="h5">$75.00</span>
-                <span class="text-muted">/per box</span>
-            </div>
-
             <p>
-                Modern look and quality demo item is a streetwear-inspired collection that continues to break away from the conventions of mainstream fashion. Made in Italy, these black and brown clothing low-top shirts for
-                men.
+                {{ product.product_desc }}
             </p>
 
             <div class="row">
@@ -77,6 +55,7 @@
     </section>
 </template>
 <script>
+    import { getProduct } from '@/api';
     export default{
         name:"ProductDetails",
         data(){
@@ -84,6 +63,16 @@
                 product:{},
                 images:[]
             }
+        },
+        mounted(){
+            let params = { product_id:this.route.query.product_id }
+            getProduct(params).then(res => {
+                this.product = res.data.product[0]
+                this.images = res.data.images
+                this.images.forEach(item => {
+                    item.product_pic = process.env.VUE_APP_IMAGE + item.product_pic
+                })
+            })
         }
     }
 </script>
