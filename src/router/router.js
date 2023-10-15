@@ -5,17 +5,22 @@ let routes = [
     {
     path: '/',
     component: IndexCarousel,
-    name: 'index'
+    name: 'index',
     },
     {
-    path:'/productList',
+    path:'/productBrand/:brand_id',
     component:ProductList,
-    name:'productList'
+    name:'productBrand'
     },
     {
-    path:'/productDetails/:product_id/:brand_id/:category_id',
+    path:'/productDetails/:product_id',
     component:ProductDetails,
     name:'productDetails'
+    },
+    {
+        path:'/productCategory/:category_id',
+        component:ProductList,
+        name:'productCategory'
     }
 ]
 export default routes

@@ -65,7 +65,10 @@
             }
         },
         mounted(){
-            let params = { product_id:this.route.query.product_id }
+            let params = {}
+            if(this.$route.query.product_id){
+                params["product_id"] = this.$route.query.product_id
+            }
             getProduct(params).then(res => {
                 this.product = res.data.product[0]
                 this.images = res.data.images

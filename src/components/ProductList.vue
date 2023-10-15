@@ -62,7 +62,14 @@
         }
       },
       mounted(){
-        getProduct().then( res => {
+        let params = {}
+        if(this.$route.params.brand_id){
+            params["brand_id"] = this.$route.params.brand_id
+        }
+        if(this.$route.params.category_id){
+            params["category_id"] = this.$route.params.category_id
+        }
+        getProduct(params).then( res => {
             this.productList = res.data.product
             this.productList.forEach( item => {
                 item.product_pic = process.env.VUE_APP_IMAGE + item.product_pic

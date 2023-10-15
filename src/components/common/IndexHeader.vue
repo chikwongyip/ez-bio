@@ -39,15 +39,19 @@
                 <b-nav-item-dropdown text="品牌">
                   <b-dropdown-item v-for="(item) in brand" 
                                    :key="item.brand_id"
-                                   :route="{path:'/productList',query:{brand_id:item.brand_id}}">
-                    {{ item.brand_name }}
+                                   >
+                    <router-link :to="{name:'productBrand',params:{brand_id:item.brand_id}}">
+                      {{ item.brand_name }}
+                    </router-link>
                   </b-dropdown-item>
                 </b-nav-item-dropdown>
                 <b-nav-item-dropdown text="类型">
                   <b-dropdown-item v-for="(item) in category"
                                    :key="item.category_id"
-                                   :route="{path:'/productList',query:{category_id:item.category_id}}">
-                    {{ item.category_name }}
+                                   >
+                    <router-link :to="{name:'productCategory',params:{category_id:item.category_id}}">
+                      {{ item.category_name }}
+                    </router-link>
                   </b-dropdown-item>
                 </b-nav-item-dropdown>
                 <b-nav-item>技术文档</b-nav-item>
