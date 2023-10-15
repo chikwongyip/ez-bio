@@ -55,7 +55,7 @@
       name:"ProductList",
       data(){
         return{
-            productList:[],
+            data:[],
             perPage:10,
             currentPage:1,
         }
@@ -83,7 +83,6 @@
         }
       },
       mounted(){
-        console.log(this.$route.params)
         let params = {}
         if(this.$route.params.brand_id){
             params["brand_id"] = this.$route.params.brand_id
@@ -92,25 +91,23 @@
             params["category_id"] = this.$route.params.category_id
         }
         getProduct(params).then( res => {
-            this.productList = res.data.product
-            this.productList.forEach( item => {
+            this.data = res.data.product
+            this.data.forEach( item => {
                 item.product_pic = process.env.VUE_APP_IMAGE + item.product_pic
             })
         })
-        if(this.$route.params.textSearch){
-            let data = []
-            data = this.productList
-            this.productList = []
-            this.productList = this.productSearch(
-                this.$route.params.item,
-                this.$route.params.textSearch,
-                data
-                )
-        }
       },
       watch:{
         '$route':function(){
             window.location.reload()
+        }
+      },
+      computed:{
+        productList(){
+            if(this.$route.params.textSearch){
+                return this.productSearch(this.$route.params.item, this.$route.params.textSearch, this.data) 
+            }
+            return this.data
         }
       }
     }
