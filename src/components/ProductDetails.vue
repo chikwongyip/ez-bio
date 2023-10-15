@@ -76,7 +76,12 @@
                     item.product_pic = process.env.VUE_APP_IMAGE + item.product_pic
                 })
             })
+        },
+        watch:{
+        '$route':function(){
+            window.location.reload()
         }
+      }
     }
 </script>
 <style scoped>

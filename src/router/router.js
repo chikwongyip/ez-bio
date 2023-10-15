@@ -21,6 +21,11 @@ let routes = [
         path:'/productCategory/:category_id',
         component:ProductList,
         name:'productCategory'
+    },
+    {
+        path:'/productSearch/:item/:textSearch',
+        component:ProductList,
+        name:'productSearch'
     }
 ]
 export default routes

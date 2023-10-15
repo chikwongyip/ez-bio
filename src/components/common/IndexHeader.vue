@@ -3,9 +3,9 @@
         <b-row>
           <b-col>
             <div>
-              <b-img :src="company.logo" fluid alt="没有找到图片">
-
-              </b-img> 
+              <router-link :to="{name:'index'}">
+                <b-img :src="company.logo" fluid alt="没有找到图片"></b-img> 
+              </router-link>
             </div>
           </b-col>
           <b-col cols="8">
@@ -18,8 +18,8 @@
                 class="w-10 p-1"
                 > 
                 </b-form-select> 
-                <b-form-input aria-label="Input" class="w-50 p-3"></b-form-input>
-                <b-button variant="outline-primary">搜索</b-button>
+                <b-form-input aria-label="Input" class="w-50 p-3" v-model="inputText"></b-form-input>
+                <b-button variant="outline-primary" @click="submitSearch">搜索</b-button>
               </b-input-group>
             </div>
           </b-col>
@@ -77,7 +77,8 @@
             { item:'1', name:"品牌"},
             { item:'2', name:"类别"},
             { item:'3', name:"名称"},
-          ]
+          ],
+          inputText:""
         }
       },
       methods:{
@@ -92,6 +93,12 @@
           getCategory().then(res => {
             this.category = res.data
           })
+        },
+        submitSearch(){
+          this.$router.push({name:"productSearch",params:{
+            item:this.selected,
+            textSearch:this.inputText
+          }}).catch(()=>{})
         }
       },
       mounted(){

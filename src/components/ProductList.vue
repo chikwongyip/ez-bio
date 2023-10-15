@@ -58,10 +58,32 @@
             productList:[],
             perPage:10,
             currentPage:1,
-
+        }
+      },
+      methods:{
+        productSearch(item,searchText,data){
+            let result = []
+            const regExp = new RegExp(searchText,"g")
+            if(item === "1"){
+                result = data.filter( item => {
+                    return regExp.test(item.brand_name)
+                })
+            }
+            if(item === "2"){
+                result = data.filter( item => {
+                    return regExp.test(item.category_name)
+                })
+            }
+            if(item === "3"){
+                result = data.filter( item => {
+                    return regExp.text(item.product_name)
+                })
+            }
+            return result
         }
       },
       mounted(){
+        console.log(this.$route.params)
         let params = {}
         if(this.$route.params.brand_id){
             params["brand_id"] = this.$route.params.brand_id
@@ -75,13 +97,23 @@
                 item.product_pic = process.env.VUE_APP_IMAGE + item.product_pic
             })
         })
+        if(this.$route.params.textSearch){
+            let data = []
+            data = this.productList
+            this.productList = []
+            this.productList = this.productSearch(
+                this.$route.params.item,
+                this.$route.params.textSearch,
+                data
+                )
+        }
       },
-      computed:{
-        rows(){
-            return this.productList.length
+      watch:{
+        '$route':function(){
+            window.location.reload()
         }
       }
-  }
+    }
 </script>
 <style scoped>
 </style>

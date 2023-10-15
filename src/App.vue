@@ -13,15 +13,11 @@
 <script>
 import IndexHeader from './components/common/IndexHeader.vue';
 import IndexFooter from './components/common/IndexFooter.vue';
-// import IndexCarousel from './components/IndexCarousel.vue';
-// import ProductList from '@/components/ProductList'
 export default {
   name: 'App',
   components: {
     IndexHeader,
     IndexFooter
-    // IndexCarousel
-    // ProductList
   }
 }
 </script>
