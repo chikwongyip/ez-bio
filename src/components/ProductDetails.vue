@@ -1,5 +1,4 @@
 <template>
-    <section class="py-5">
     <div class="container">
         <div class="row gx-5">
         <aside class="col-lg-6">
@@ -52,7 +51,7 @@
         </main>
         </div>
     </div>
-    </section>
+    
 </template>
 <script>
     import { getProduct } from '@/api';

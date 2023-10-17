@@ -1,7 +1,7 @@
 <template>
     <b-container>
         <b-row>
-          <b-col>
+          <b-col cols="2">
             <div>
               <router-link :to="{name:'index'}">
                 <b-img :src="company.logo" fluid alt="没有找到图片"></b-img> 

@@ -1,23 +1,22 @@
 <template>
   <div id="app">
-    <index-header>
-    </index-header>
-    <router-view>
-      
-    </router-view>
-    <index-footer>
-    </index-footer>
+    <index-header> </index-header>
+    <router-view> </router-view>
+    <index-brand> </index-brand>
+    <index-footer> </index-footer>
   </div>
 </template>
 
 <script>
 import IndexHeader from './components/common/IndexHeader.vue';
 import IndexFooter from './components/common/IndexFooter.vue';
+import IndexBrand from './components/common/IndexBrand.vue';
 export default {
   name: 'App',
   components: {
     IndexHeader,
-    IndexFooter
+    IndexFooter,
+    IndexBrand
   }
 }
 </script>

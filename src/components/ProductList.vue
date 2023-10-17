@@ -1,5 +1,5 @@
 <template>
-    <section>
+    <div class="container">
         <div class="row justify-content-center mb-3"
             v-for="item in productList"
             :key="item.product_id">
@@ -47,7 +47,7 @@
             </div>
             </div>
         </div>
-    </section>  
+    </div>
 </template>
 <script>
     import { getProduct } from '@/api';
