@@ -26,27 +26,24 @@
         <main class="col-lg-6">
             <div class="ps-lg-3">
             <h4 class="title text-dark">
-                {{ product.product }}
+                {{ product.product_name }}
             </h4>
-            <p>
-                {{ product.product_desc }}
-            </p>
-
             <div class="row">
-                <dt class="col-3">Type:</dt>
-                <dd class="col-9">Regular</dd>
+                <dt class="col-3">产品规格</dt>
+                <dd class="col-9">{{ product.product_standard }}</dd>
 
-                <dt class="col-3">Color</dt>
-                <dd class="col-9">Brown</dd>
-
-                <dt class="col-3">Material</dt>
-                <dd class="col-9">Cotton, Jeans</dd>
-
-                <dt class="col-3">Brand</dt>
-                <dd class="col-9">Reebook</dd>
+                <dt class="col-3">产品型号</dt>
+                <dd class="col-9">{{ product.product_model }}</dd>
             </div>
-
             <hr />
+            <div class="text-left">
+                <h5>产品描述</h5>
+            <p>
+                <pre id="desc">
+                    {{ product.product_desc }}
+                </pre>
+            </p>
+            </div>
             </div>
         </main>
         </div>
@@ -70,7 +67,11 @@
             }
             getProduct(params).then(res => {
                 this.product = res.data.product[0]
-                this.images = res.data.images
+                this.images = res.data.images.filter(item => {
+                    if(item.product_id == this.product.product_id){
+                        return item
+                    }
+                })
                 this.images.forEach(item => {
                     item.product_pic = process.env.VUE_APP_IMAGE + item.product_pic
                 })
@@ -84,4 +85,7 @@
     }
 </script>
 <style scoped>
+#desc{
+    white-space: pre-wrap;
+  }
 </style>

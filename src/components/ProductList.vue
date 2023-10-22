@@ -57,7 +57,11 @@
               </div>
               <div class="col-xl-3 col-md-3 col-sm-5">
                 <div class="mt-4">
-                  <button class="btn btn-primary" type="button">
+                  <button
+                    class="btn btn-primary"
+                    type="button"
+                    @click="ViewDetals(item.product_id)"
+                  >
                     点击浏览
                   </button>
                 </div>
@@ -100,6 +104,12 @@ export default {
         });
       }
       return result;
+    },
+    ViewDetals(product_id) {
+      this.$router.push({
+        name: "productDetails",
+        params: { product_id: product_id }
+      });
     }
   },
   mounted() {

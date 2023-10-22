@@ -1,7 +1,7 @@
 <template>
   <b-container>
     <b-row align-v="center">
-      <b-col cols="mb-2">
+      <b-col cols="mb-4">
         <div>
           <router-link :to="{ name: 'index' }">
             <b-img :src="company.logo" fluid alt="没有找到图片"></b-img>
@@ -17,26 +17,28 @@
       </b-col>
     </b-row>
     <b-row align-v="center">
-      <div>
-        <b-input-group>
-          <b-form-select
-            v-model="selected"
-            :options="options"
-            value-field="item"
-            text-field="name"
-            class="w-15 p-1"
-          >
-          </b-form-select>
-          <b-form-input
-            aria-label="Input"
-            class="w-50 p-3"
-            v-model="inputText"
-          ></b-form-input>
-          <b-button variant="outline-primary" @click="submitSearch"
-            >搜索</b-button
-          >
-        </b-input-group>
-      </div>
+      <b-col>
+        <div>
+          <b-input-group>
+            <b-form-select
+              v-model="selected"
+              :options="options"
+              value-field="item"
+              text-field="name"
+              class="w-15 p-1"
+            >
+            </b-form-select>
+            <b-form-input
+              aria-label="Input"
+              class="w-50 p-3"
+              v-model="inputText"
+            ></b-form-input>
+            <b-button variant="outline-primary" @click="submitSearch"
+              >搜索</b-button
+            >
+          </b-input-group>
+        </div>
+      </b-col>
     </b-row>
     <div class="mt-4"></div>
     <b-row>
@@ -124,4 +126,14 @@ export default {
   }
 };
 </script>
-<style scoped></style>
+<style scoped>
+.icon-hover:hover {
+  border-color: #3b71ca !important;
+  background-color: white !important;
+  color: #3b71ca !important;
+}
+
+.icon-hover:hover i {
+  color: #3b71ca !important;
+}
+</style>
