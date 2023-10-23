@@ -146,4 +146,12 @@ export default {
   }
 };
 </script>
-<style scoped></style>
+<style scoped>
+span {
+  color: #2cabda;
+}
+.btn-primary {
+  background-color: #2cabda;
+  border-color: #2cabda;
+}
+</style>

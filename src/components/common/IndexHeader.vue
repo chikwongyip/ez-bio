@@ -1,65 +1,66 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-light">
+  <header>
     <div>
       <router-link :to="{ name: 'index' }">
         <b-img :src="company.logo" fluid alt="没有找到图片"></b-img>
       </router-link>
     </div>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <b-nav tabs fill>
-        <b-nav-item-dropdown text="品牌">
-          <b-dropdown-item v-for="item in brand" :key="item.brand_id">
-            <router-link
-              :to="{
-                name: 'productBrand',
-                params: { brand_id: item.brand_id }
-              }"
-            >
-              {{ item.brand_name }}
-            </router-link>
-          </b-dropdown-item>
-        </b-nav-item-dropdown>
-        <b-nav-item-dropdown text="类型">
-          <b-dropdown-item v-for="item in category" :key="item.category_id">
-            <router-link
-              :to="{
-                name: 'productCategory',
-                params: { category_id: item.category_id }
-              }"
-            >
-              {{ item.category_name }}
-            </router-link>
-          </b-dropdown-item>
-        </b-nav-item-dropdown>
-        <b-nav-item>技术文档</b-nav-item>
-        <b-nav-item>关于我们</b-nav-item>
-      </b-nav>
-      <form class="form-inline my-2 my-lg-0">
-        <b-form-select
-          v-model="selected"
-          :options="options"
-          value-field="item"
-          text-field="name"
-          class="w-15"
-        >
-        </b-form-select>
-        <input
-          class="form-control mr-sm-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-        />
-        <button
-          class="btn btn-outline-success my-2 my-sm-0"
-          type="submit"
-          @click="submitSearch"
-        >
-          Search
-        </button>
-      </form>
-    </div>
-  </nav>
+    <nav class="navbar navbar-expand-md bg-light navbar-light">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <b-nav tabs fill>
+          <b-nav-item-dropdown toggle-class="text-dark" text="品牌">
+            <b-dropdown-item v-for="item in brand" :key="item.brand_id">
+              <router-link
+                :to="{
+                  name: 'productBrand',
+                  params: { brand_id: item.brand_id }
+                }"
+              >
+                {{ item.brand_name }}
+              </router-link>
+            </b-dropdown-item>
+          </b-nav-item-dropdown>
+          <b-nav-item-dropdown text="类型" toggle-class="text-dark">
+            <b-dropdown-item v-for="item in category" :key="item.category_id">
+              <router-link
+                :to="{
+                  name: 'productCategory',
+                  params: { category_id: item.category_id }
+                }"
+              >
+                {{ item.category_name }}
+              </router-link>
+            </b-dropdown-item>
+          </b-nav-item-dropdown>
+          <b-nav-item>技术文档</b-nav-item>
+          <b-nav-item>关于我们</b-nav-item>
+        </b-nav>
+        <form class="form-inline my-2 my-lg-0">
+          <b-form-select
+            v-model="selected"
+            :options="options"
+            value-field="item"
+            text-field="name"
+            class="w-15"
+          >
+          </b-form-select>
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button
+            class="btn btn-outline-success my-2 my-sm-0"
+            type="submit"
+            @click="submitSearch"
+          >
+            Search
+          </button>
+        </form>
+      </div>
+    </nav>
+  </header>
   <!-- <b-container>
     <b-row align-v="center">
       <b-col cols="mb-4">
@@ -189,13 +190,6 @@ export default {
 </script>
 <style scoped>
 a {
-  color: #40b1dc;
-}
-.dropdown {
-  color: #40b1dc !important;
-}
-
-.navbar-light .navbar-nav .nav-link {
-  color: #40b1dc !important;
+  color: black;
 }
 </style>
