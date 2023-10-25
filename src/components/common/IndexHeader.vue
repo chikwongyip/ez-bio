@@ -35,7 +35,15 @@
             </b-dropdown-item>
           </b-nav-item-dropdown>
           <b-nav-item>技术文档</b-nav-item>
-          <b-nav-item>关于我们</b-nav-item>
+          <b-nav-item>
+            <router-link
+              :to="{
+                name: 'aboutUs'
+              }"
+            >
+              关于我们
+            </router-link>
+          </b-nav-item>
         </b-nav>
       </div>
       <form class="form-inline">

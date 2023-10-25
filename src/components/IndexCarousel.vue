@@ -19,7 +19,14 @@
         :key="item.pic_id"
         :img-src="item.product_pic"
       >
-        <h1>{{ item.product_name }}</h1>
+        <router-link
+          :to="{
+            name: 'productDetails',
+            params: { product_id: item.product_id }
+          }"
+        >
+          <h1>{{ item.product_name }}</h1>
+        </router-link>
       </b-carousel-slide>
     </b-carousel>
   </div>
@@ -54,4 +61,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.a {
+  color: #2cabda;
+}
+</style>
