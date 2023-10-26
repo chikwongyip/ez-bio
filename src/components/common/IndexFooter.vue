@@ -21,7 +21,11 @@
             <h6 class="text-uppercase text-blue fw-bold mb-2">备案编号</h6>
             <ul class="list-unstyled mb-4">
               <li>
-                <a class="text-blue-50" href="#">{{ company.icp }}</a>
+                <a
+                  class="text-blue-50"
+                  href="https://ythzxfw.miit.gov.cn/index"
+                  >{{ company.icp }}</a
+                >
               </li>
             </ul>
           </div>
@@ -32,8 +36,17 @@
             <!-- Links -->
             <h6 class="text-uppercase text-blue fw-bold mb-2">企业信息</h6>
             <ul class="list-unstyled mb-4">
-              <li><a class="text-blue-50" href="#">我们的品牌</a></li>
-              <li><a class="text-blue-50" href="#">产品类型</a></li>
+              我们的品牌
+              <li v-for="item in brands" :key="item.brand_id">
+                <router-link
+                  :to="{
+                    name: 'productBrand',
+                    params: { brand_id: item.brand_id }
+                  }"
+                >
+                  {{ item.brand_name }}
+                </router-link>
+              </li>
             </ul>
           </div>
           <!-- Grid column -->
@@ -43,13 +56,29 @@
             <!-- Links -->
             <h6 class="text-uppercase text-blue fw-bold mb-2">支持</h6>
             <ul class="list-unstyled mb-4">
-              <li><a class="text-blue-50" href="#">技术文档</a></li>
+              <li>
+                <router-link
+                  :to="{
+                    name: 'document'
+                  }"
+                >
+                  技术文档
+                </router-link>
+              </li>
             </ul>
           </div>
 
           <div class="col-6 col-sm-4 col-lg-2">
             <!-- Links -->
-            <h6 class="text-uppercase text-blue fw-bold mb-2">关于我们</h6>
+            <h6 class="text-uppercase text-blue fw-bold mb-2">
+              <router-link
+                :to="{
+                  name: 'aboutUs'
+                }"
+              >
+                关于我们
+              </router-link>
+            </h6>
           </div>
         </div>
         <!-- Grid row -->
@@ -59,12 +88,13 @@
   </footer>
 </template>
 <script>
-import { companyInfo } from "@/api";
+import { companyInfo, getBrand } from "@/api";
 export default {
   name: "IndexFooter",
   data() {
     return {
-      company: {}
+      company: {},
+      brands: []
     };
   },
   methods: {
@@ -72,6 +102,9 @@ export default {
       companyInfo().then((res) => {
         this.company = res.data[0];
         this.company.logo = process.env.VUE_APP_IMAGE + this.company.logo;
+      });
+      getBrand().then((res) => {
+        this.brands = res.data;
       });
     }
   },

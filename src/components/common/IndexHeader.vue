@@ -34,7 +34,15 @@
               </router-link>
             </b-dropdown-item>
           </b-nav-item-dropdown>
-          <b-nav-item>技术文档</b-nav-item>
+          <b-nav-item>
+            <router-link
+              :to="{
+                name: 'document'
+              }"
+            >
+              技术文档
+            </router-link>
+          </b-nav-item>
           <b-nav-item>
             <router-link
               :to="{

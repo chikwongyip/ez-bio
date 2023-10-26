@@ -2,6 +2,7 @@ import IndexCarousel from "@/components/IndexCarousel";
 import ProductDetails from "@/components/ProductDetails";
 import ProductList from "@/components/ProductList";
 import aboutPage from "@/components/aboutPage";
+import DocsDetails from "@/components/DocsDetails";
 let routes = [
   {
     path: "/",
@@ -32,6 +33,11 @@ let routes = [
     path: "/aboutUs",
     component: aboutPage,
     name: "aboutUs"
+  },
+  {
+    path: "/document",
+    component: DocsDetails,
+    name: "document"
   }
 ];
 export default routes;
