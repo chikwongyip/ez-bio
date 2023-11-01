@@ -25,3 +25,4 @@ new Vue({
 //to-do:favoricon
 // aboutus
 // admin
+

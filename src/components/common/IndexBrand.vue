@@ -3,14 +3,14 @@
     <div class="mt-3"></div>
     <h1>我们的品牌</h1>
     <div class="mt-3"></div>
-    <div>
-      <b-card-group deck v-for="(row, index) in formatBrand" :key="index">
+    <div v-for="(row, index) in formatBrand" :key="index">
+      <b-card-group deck>
         <b-card
           v-for="item in row"
-          no-body
           :key="item.brand_id"
+          no-body
           class="overflow-hidden text-center"
-          style="max-width: 300px"
+          style="max-width: 200px"
           :footer="item.brand_name"
           footer-tag="footer"
         >
@@ -23,6 +23,7 @@
           </b-row>
         </b-card>
       </b-card-group>
+      <div class="mt-3"></div>
     </div>
   </div>
 </template>
@@ -52,7 +53,7 @@ export default {
     formatBrand() {
       // 计算品牌的数量获取一个4 行 * n 列的数组
       return this.brands.reduce((c, n, i) => {
-        if (i % 4 === 0) {
+        if (i % 5 === 0) {
           c.push([]);
         }
         c[c.length - 1].push(n);

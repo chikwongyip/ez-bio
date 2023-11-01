@@ -84,6 +84,7 @@
 </template>
 <script>
 import { companyInfo, getBrand, getCategory } from "@/api";
+// TODO:关于我们图片需要更改
 export default {
   data() {
     return {
