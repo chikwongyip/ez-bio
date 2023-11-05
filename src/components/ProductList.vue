@@ -93,6 +93,7 @@ export default {
           return regExp.test(item.brand_name);
         });
       }
+
       if (item === "2") {
         result = data.filter((item) => {
           return regExp.test(item.category_name);
@@ -100,7 +101,7 @@ export default {
       }
       if (item === "3") {
         result = data.filter((item) => {
-          return regExp.text(item.product_name);
+          return regExp.test(item.product_name);
         });
       }
       return result;

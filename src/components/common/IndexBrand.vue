@@ -14,13 +14,20 @@
           :footer="item.brand_name"
           footer-tag="footer"
         >
-          <b-row no-gutters>
-            <b-card-img
-              :src="item.brand_image"
-              alt="Image"
-              class="rounded-0"
-            ></b-card-img>
-          </b-row>
+          <router-link
+            :to="{
+              name: 'productBrand',
+              params: { brand_id: item.brand_id }
+            }"
+          >
+            <b-row no-gutters>
+              <b-card-img
+                :src="item.brand_image"
+                alt="Image"
+                class="rounded-0"
+              ></b-card-img>
+            </b-row>
+          </router-link>
         </b-card>
       </b-card-group>
       <div class="mt-3"></div>

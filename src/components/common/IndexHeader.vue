@@ -68,7 +68,7 @@
           type="search"
           placeholder="Search"
           aria-label="Search"
-          v-mode="inputText"
+          v-model="inputText"
         />
         <button
           class="btn btn-outline-success my-2 my-sm-0"

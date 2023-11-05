@@ -6,7 +6,7 @@
           <img
             class="img-fluid rounded"
             loading="lazy"
-            src="../../src/static/imgbin.png"
+            src="../../src/static/imgbin2.png"
             alt=""
           />
         </div>
