@@ -60,7 +60,7 @@
                   <button
                     class="btn btn-primary"
                     type="button"
-                    @click="ViewDetals(item.product_id)"
+                    @click="ViewDetails(item.product_id)"
                   >
                     点击浏览
                   </button>
@@ -106,7 +106,7 @@ export default {
       }
       return result;
     },
-    ViewDetals(product_id) {
+    ViewDetails(product_id) {
       this.$router.push({
         name: "productDetails",
         params: { product_id: product_id }

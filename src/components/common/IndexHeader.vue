@@ -1,5 +1,11 @@
 <template>
   <header class="container">
+    <div class="d-flex justify-content-end align-items-center">
+      <h3>
+        <b-icon icon="telephone-inbound-fill" variant="info"></b-icon>
+        联系我们：{{company.tel}}
+      </h3>
+    </div>
     <nav class="navbar navbar-expand-md navbar-light justify-content-center">
       <router-link
         :to="{ name: 'index' }"
